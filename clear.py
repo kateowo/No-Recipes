@@ -1,8 +1,13 @@
 # clear all vanilla recipes
 
+# import
 import os
+# custom colours in terminal
+from colorama import init
+from colorama import Fore, Back, Style
+init()
 
-warning = input('WARNING: running this script will overwrite ALL files in this directory and corresponding directories. are you sure? [y/n] ')
+warning = input(f'{Back.RED}{Style.BRIGHT}[WARNING]{Style.RESET_ALL} Proceeding will overwrite {Back.RED}{Style.BRIGHT}ALL{Style.RESET_ALL} files in this and corresponding directories. Are you sure? [y/n] ')
 if warning == 'y':
     for filename in os.scandir():
         if filename.is_file() and filename.path != '.\clear.py':
@@ -23,6 +28,6 @@ if warning == 'y':
     }
 }''')
 
-    print ('finished')
+    print (f'{Back.GREEN}{Style.BRIGHT}[DONE]{Style.RESET_ALL}')
 else:
-    print ('aborted')
+    print (f'{Back.GREEN}{Style.BRIGHT}[ABORTED]{Style.RESET_ALL}')
